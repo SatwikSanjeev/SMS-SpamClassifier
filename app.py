@@ -1,8 +1,9 @@
-import streamlit as st
 import joblib
-import re
+import streamlit as st
+import nltk
 from nltk.corpus import stopwords
 
+# Safe download
 try:
     stop_words = set(stopwords.words('english'))
 except LookupError:
