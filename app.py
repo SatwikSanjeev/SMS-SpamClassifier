@@ -3,6 +3,12 @@ import joblib
 import re
 from nltk.corpus import stopwords
 
+try:
+    stop_words = set(stopwords.words('english'))
+except LookupError:
+    nltk.download('stopwords')
+    stop_words = set(stopwords.words('english'))
+
 # Load saved model and vectorizer
 model = joblib.load("spam_model.pkl")
 tfidf = joblib.load("tfidf_vectorizer.pkl")
